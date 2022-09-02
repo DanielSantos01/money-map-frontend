@@ -1,11 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
+import * as S from './styles';
+
 const Login: React.FC = () => {
   return (
-    <View>
+    <S.Container>
       <Text>This is the login screen!</Text>
-    </View>
+    </S.Container>
   );
 };
 

@@ -1,4 +1,4 @@
+import { DefaultTheme } from 'styled-components/native';
 import colors from './colors';
-import { Theme } from './iTheme';
 
-export const moneyMapTheme: Theme = { ...colors };
+export const moneyMapTheme: DefaultTheme = { colors: { ...colors } };

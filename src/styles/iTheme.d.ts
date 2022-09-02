@@ -1,19 +1,25 @@
-export interface Theme {
-  primary: string;
-  onPrimary: string;
+import 'styled-components';
 
-  secondary: string;
-  onSecondary: string;
-
-  surface: string;
-  onSurface: string;
-
-  background: string;
-  onBackground: string;
-
-  primaryVariant: string;
-  onPrimaryVariant: string;
-
-  error: string;
-  onError: string;
+declare module 'styled-components/native' {
+  export interface DefaultTheme {
+    colors: {
+      primary: string;
+      onPrimary: string;
+    
+      secondary: string;
+      onSecondary: string;
+    
+      surface: string;
+      onSurface: string;
+    
+      background: string;
+      onBackground: string;
+    
+      primaryVariant: string;
+      onPrimaryVariant: string;
+    
+      error: string;
+      onError: string;
+    }
+  }
 }
