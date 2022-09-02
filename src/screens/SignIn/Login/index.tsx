@@ -6,7 +6,7 @@ import * as S from './styles';
 const Login: React.FC = () => {
   return (
     <S.Container>
-      <Text>This is the login screen!</Text>
+      <Text style={{ color: 'white', fontFamily: 'raleway-bold'}}>THIS IS</Text>
     </S.Container>
   );
 };
