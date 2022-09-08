@@ -11,6 +11,9 @@ export default {
   background: '#121212',
   onBackground: '#FFFFFF',
 
+  primaryGray: 'rgba(255, 255, 255, 0.08)',
+  placeholder: 'rgba(255, 255, 255, 0.1)',
+
   primaryVariant: '#3700B3',
   onPrimaryVariant: '#000000',
 

@@ -1,13 +1,48 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState, useCallback } from 'react';
 
-import * as S from './styles';
+import Main from './main';
 
 const Login: React.FC = () => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
+
+  const togglePasswordVisibility = useCallback(() => {
+    setPasswordVisible(!isPasswordVisible);
+  }, [isPasswordVisible]);
+
+  const handleSetEmail = useCallback((value: string) => {
+    setEmail(value);
+  }, []);
+
+  const handleSetPassword = useCallback((value: string) => {
+    setPassword(value);
+  }, []);
+
+  const handleCreateAccount = useCallback(() => {
+    //TODO
+  }, []);
+
+  const handleSignIn = useCallback(async () => {
+    //TODO
+  }, []);
+
+  const handleForgotPassword = useCallback(async () => {
+    //TODO
+  }, []);
+
   return (
-    <S.Container>
-      <Text style={{ color: 'white', fontFamily: 'raleway-bold'}}>THIS IS</Text>
-    </S.Container>
+    <Main
+      email={email}
+      password={password}
+      isPasswordVisible={isPasswordVisible}
+      setEmail={handleSetEmail}
+      setPassword={handleSetPassword}
+      togglePasswordVisibility={togglePasswordVisibility}
+      createAccount={handleCreateAccount}
+      signIn={handleSignIn}
+      forgotPassword={handleForgotPassword}
+    />
   );
 };
 

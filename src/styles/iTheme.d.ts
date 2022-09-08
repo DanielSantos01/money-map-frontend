@@ -11,6 +11,9 @@ declare module 'styled-components/native' {
     
       surface: string;
       onSurface: string;
+
+      primaryGray: string;
+      placeholder: string;
     
       background: string;
       onBackground: string;
@@ -20,6 +23,16 @@ declare module 'styled-components/native' {
     
       error: string;
       onError: string;
-    }
+    };
+
+    fonts: {
+      raleway: {
+        bold: string;
+        semibold: string;
+        regular: string;
+        medium: string;
+        thin: string;
+      }
+    };
   }
 }
