@@ -5,20 +5,21 @@ import * as S from './styles';
 
 const Input: React.FC<InputProps> = ({
   onChange,
+  containerStyle,
   value,
   placeholder,
   labelFont,
   isPassword,
   label
 }) => {
-  const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
+  const [isPasswordVisible, setPasswordVisible] = useState<boolean>(!isPassword);
 
   const togglePasswordVisibility = useCallback(() => {
     setPasswordVisible(!isPasswordVisible);
   }, [isPasswordVisible]);
 
   return (
-    <S.Container>
+    <S.Container style={containerStyle}>
       <S.Label font={labelFont}>{label}</S.Label>
       <S.TextInput
         secureTextEntry={!isPasswordVisible}
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({
         placeholderTextColor='rgba(255, 255, 255, 0.1)'
         onChangeText={onChange}
         value={value}
+        autoCapitalize={false}
       />
 
       {isPassword && (

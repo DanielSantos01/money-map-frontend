@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 interface StyleProps {
   mode: 'light' | 'dark';
+  disabled?: boolean;
 }
 
 export const Container = styled.TouchableOpacity<StyleProps>`
@@ -10,6 +11,7 @@ export const Container = styled.TouchableOpacity<StyleProps>`
   border-radius: 30.5px;
   align-items: center;
   justify-content: center;
+  opacity: ${({ disabled }) => disabled ? 0.6 : 1 };
   background-color: ${({ theme, mode }) => mode === 'light' ? theme.colors.onSurface : theme.colors.primaryGray};
 `;
 
