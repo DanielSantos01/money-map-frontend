@@ -26,8 +26,8 @@ const Login: React.FC = () => {
   }, []);
 
   const handleForgotPassword = useCallback(async () => {
-    //TODO
-  }, []);
+    navigate('ForgotPassword');
+  }, [navigate]);
 
   return (
     <Main
