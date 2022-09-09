@@ -5,11 +5,6 @@ import Main from './main';
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [isPasswordVisible, setPasswordVisible] = useState<boolean>(false);
-
-  const togglePasswordVisibility = useCallback(() => {
-    setPasswordVisible(!isPasswordVisible);
-  }, [isPasswordVisible]);
 
   const handleSetEmail = useCallback((value: string) => {
     setEmail(value);
@@ -35,10 +30,8 @@ const Login: React.FC = () => {
     <Main
       email={email}
       password={password}
-      isPasswordVisible={isPasswordVisible}
       setEmail={handleSetEmail}
       setPassword={handleSetPassword}
-      togglePasswordVisibility={togglePasswordVisibility}
       createAccount={handleCreateAccount}
       signIn={handleSignIn}
       forgotPassword={handleForgotPassword}

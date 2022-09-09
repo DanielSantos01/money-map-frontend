@@ -1,18 +1,16 @@
 import React from 'react';
 
-import { RoundButton } from '../../../components';
+import { RoundButton, Input } from '../../../components';
 import { MainProps } from './interfaces';
 import * as S from './styles';
 
 const Main: React.FC<MainProps> = ({
   createAccount,
   email,
-  isPasswordVisible,
   password,
   setEmail,
   setPassword,
   signIn,
-  togglePasswordVisibility,
   forgotPassword,
 }) => {
   return (
@@ -20,30 +18,20 @@ const Main: React.FC<MainProps> = ({
       <S.InnerContainer>
         <S.Title>Entrar</S.Title>
 
-        <S.InputContainer>
-          <S.InputLabel>E-mail</S.InputLabel>
-          <S.Input
-            placeholder='E-mail@example.com'
-            placeholderTextColor='rgba(255, 255, 255, 0.1)'
-            onChangeText={setEmail}
-            value={email}
-          />
-        </S.InputContainer>
+        <Input
+          label='E-mail'
+          placeholder='E-mail@example.com'
+          onChange={setEmail}
+          value={email}
+        />
 
-        <S.InputContainer>
-          <S.InputLabel>Senha</S.InputLabel>
-          <S.Input
-            secureTextEntry={!isPasswordVisible}
-            placeholder='Insira sua senha'
-            placeholderTextColor='rgba(255, 255, 255, 0.1)'
-            onChangeText={setPassword}
-            value={password}
-          />
-
-          <S.TogglePasswordVisibilityButton onPress={togglePasswordVisibility}>
-            <S.Icon name={ isPasswordVisible ? 'eye' : 'eye-off' } />
-          </S.TogglePasswordVisibilityButton>
-        </S.InputContainer>
+        <Input
+          label='Senha'
+          placeholder='Insira sua senha'
+          onChange={setPassword}
+          value={password}
+          isPassword
+        />
 
         <S.ForgotPasswordButton onPress={forgotPassword}>
           <S.ForgotPasswordLabel>Esqueci minha senha</S.ForgotPasswordLabel>
