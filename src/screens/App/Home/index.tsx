@@ -1,11 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+
+import { Header } from '@/components';
+import * as S from './styles';
 
 const MainScreen: React.FC = () => {
   return (
-    <View>
-      <Text>This is the home screen!</Text>
-    </View>
+    <S.Container>
+      <Header />
+    </S.Container>
   );
 };
 
