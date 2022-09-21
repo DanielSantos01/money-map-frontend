@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 interface StyleProps {
   mode: 'light' | 'dark';
+  id?: string;
   disabled?: boolean;
 }
 

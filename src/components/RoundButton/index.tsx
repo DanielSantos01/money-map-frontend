@@ -8,9 +8,11 @@ const RoundButton: React.FC<RoundButtonProps> = ({
   onPress, 
   style,
   disabled,
+  id,
 }) => {
   return (
     <S.Container
+      id={id}
       mode={mode}
       onPress={onPress}
       style={style}

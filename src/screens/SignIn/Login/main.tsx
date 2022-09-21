@@ -37,7 +37,7 @@ const Main: React.FC<MainProps> = ({
           <S.ForgotPasswordLabel>Esqueci minha senha</S.ForgotPasswordLabel>
         </S.ForgotPasswordButton>
 
-        <RoundButton mode='light' label='Entrar' onPress={signIn} />
+        <RoundButton id='login-btn' mode='light' label='Entrar' onPress={signIn} />
 
         <S.NoAccountLabel>Não possui conta?</S.NoAccountLabel>
 

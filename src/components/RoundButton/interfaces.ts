@@ -5,5 +5,6 @@ export interface RoundButtonProps {
   label: string;
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
+  id?: string;
   onPress?: () => void | Promise<void>;
 }
