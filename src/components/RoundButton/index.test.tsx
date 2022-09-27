@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
+import { render, fireEvent } from '@testing-library/react-native';
 import { enhanceScreen } from '@/utils';
 import Button from './index';
 
@@ -50,7 +50,7 @@ it('roundButton testing id', () => {
   expect(result).toBeDefined();
 });
 
-it('roundButton testing enabled click', () => {
+it('roundButton testing click', () => {
   const mockFunction = jest.fn();
   const component = render(enhanceScreen(() => (
     <Button label='test-label' mode='light' disabled={false} onPress={mockFunction} />

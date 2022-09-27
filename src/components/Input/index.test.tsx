@@ -11,7 +11,7 @@ it('input render correctly', async () => {
   expect(component).toMatchSnapshot();
 });
 
-it('testing label', async () => {
+it('input testing label', async () => {
   const mockFunction = jest.fn();
   const component = render(enhanceScreen(() => (
     <Input label='testLabel' onChange={mockFunction} value='' />
@@ -20,7 +20,7 @@ it('testing label', async () => {
   expect(result).toBeDefined();
 });
 
-it('testing default value', () => {
+it('input testing default value', () => {
   const mockFunction = jest.fn();
   const component = render(enhanceScreen(() => (
     <Input label='testLabel' onChange={mockFunction} value='myDefaultValue' />
@@ -29,7 +29,7 @@ it('testing default value', () => {
   expect(result).toBeDefined();
 });
 
-it('testing placeholder', () => {
+it('input testing placeholder', () => {
   const mockFunction = jest.fn();
   const component = render(enhanceScreen(() => (
     <Input label='testLabel' onChange={mockFunction} value='myDefaultValue' placeholder='myPlaceholder' />
@@ -38,7 +38,7 @@ it('testing placeholder', () => {
   expect(result).toBeDefined();
 });
 
-it('testing password mode', () => {
+it('input testing password mode', () => {
   const mockFunction = jest.fn();
   const component = render(enhanceScreen(() => (
     <Input label='testLabel' onChange={mockFunction} value='myDefaultValue' isPassword />
@@ -47,7 +47,7 @@ it('testing password mode', () => {
   expect(result).toBeDefined();
 });
 
-it('testing labelFont', () => {
+it('input testing labelFont', () => {
   const mockFunction = jest.fn();
   const component = render(enhanceScreen(() => (
     <Input label='testLabel' onChange={mockFunction} value='myDefaultValue' labelFont='bold' />
@@ -56,7 +56,7 @@ it('testing labelFont', () => {
   expect(result).toBeDefined();
 });
 
-it('testing password mode', () => {
+it('input testing write', () => {
   const mockFunction = jest.fn();
   const component = render(enhanceScreen(() => (
     <Input label='testLabel' onChange={mockFunction} value='myDefaultValue' isPassword />
