@@ -1,13 +1,14 @@
 import React from 'react';
 
+import { HeaderProps } from './interfaces';
 import * as S from './styles';
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, testID }) => {
   return (
     <S.Container>
       <S.VerticalView>
-        <S.Profile source={{ url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Breezeicons-actions-22-im-user.svg/1200px-Breezeicons-actions-22-im-user.svg.png' }} />
-        <S.Username>Olá, Daniel</S.Username>
+        <S.Profile source={{ url: profilePictureUrl }} id={testID} />
+        <S.Username>Olá, {username}</S.Username>
       </S.VerticalView>
 
       <S.VerticalView right>
@@ -21,7 +22,7 @@ const Header: React.FC = () => {
           </S.Button>
         </S.IconsContainer>
 
-        <S.Value>R$ 50,00</S.Value>
+        <S.Value>R$ {money.toString().replace('.', ',')}</S.Value>
       </S.VerticalView>
     </S.Container>
   );

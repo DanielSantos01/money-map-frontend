@@ -3,6 +3,14 @@ import { render, fireEvent } from '@testing-library/react-native';
 import { enhanceScreen } from '@/utils';
 import Input from './index';
 
+it('input render correctly', async () => {
+  const mockFunction = jest.fn();
+  const component = render(enhanceScreen(() => (
+    <Input label='testLabel' onChange={mockFunction} value='' />
+  )));
+  expect(component).toMatchSnapshot();
+});
+
 it('testing label', async () => {
   const mockFunction = jest.fn();
   const component = render(enhanceScreen(() => (
