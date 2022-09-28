@@ -22,7 +22,7 @@ const Login: React.FC = () => {
   }, [navigate]);
 
   const handleSignIn = useCallback(async () => {
-    //TODO
+    navigate('Home');
   }, []);
 
   const handleForgotPassword = useCallback(async () => {
