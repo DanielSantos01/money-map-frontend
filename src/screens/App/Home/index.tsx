@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header } from '@/components';
+import { Header, MonthsList } from '@/components';
 import * as S from './styles';
 
 const MainScreen: React.FC = () => {
@@ -11,6 +11,7 @@ const MainScreen: React.FC = () => {
         username='Paulinha'
         money={50.00}
       />
+      <MonthsList />
     </S.Container>
   );
 };
