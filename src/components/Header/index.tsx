@@ -11,7 +11,7 @@ const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, tes
         <S.Username>Olá, {username}</S.Username>
       </S.VerticalView>
 
-      <S.VerticalView right>
+      <S.VerticalView alignRight={true}>
         <S.IconsContainer>
           <S.Button>
             <S.Icon name='dollar-sign' style={{ marginRight: 20 }} />

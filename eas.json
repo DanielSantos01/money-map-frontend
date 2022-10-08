@@ -17,10 +17,6 @@
         "android": {
             "buildType": "apk"
         }
-      },
-
-      "cli": {
-          "version": ">= 0.48.0"
       }
     }
 }

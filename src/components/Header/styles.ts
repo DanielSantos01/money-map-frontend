@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 
 interface VerticalViewProps {
-  right?: boolean;
+  alignRight?: boolean;
 }
 
 export const Container = styled.View`
@@ -24,7 +24,7 @@ export const VerticalView = styled.View<VerticalViewProps>`
   width: 50%;
   height: 100%;
   justify-content: space-between;
-  align-items: ${({ right }) => right ? 'flex-end' : 'flex-start'};
+  align-items: ${({ alignRight }) => alignRight ? 'flex-end' : 'flex-start'};
 `;
 
 export const Username = styled.Text`

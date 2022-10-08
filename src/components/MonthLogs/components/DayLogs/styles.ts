@@ -3,7 +3,7 @@ import { Feather } from '@expo/vector-icons';
 
 export const Container = styled.View``;
 
-export const Item = styled.TouchableOpacity`
+export const Item = styled.View`
   flex-direction: row;
   align-items: center;
   height: 50px;
@@ -18,5 +18,5 @@ export const Icon = styled(Feather)`
 export const DayLabel = styled.Text`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.onSurface};
-  font-family: ${({ theme }) => theme.fonts.raleway.bold};
+  font-family: ${({ theme }) => theme.fonts.raleway.regular};
 `;
