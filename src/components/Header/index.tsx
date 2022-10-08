@@ -1,9 +1,18 @@
-import React from 'react';
+import SignInRoutes from '@/routes/signIn.routes';
+import { useNavigation } from '@react-navigation/native';
+import React, { useCallback } from 'react';
 
 import { HeaderProps } from './interfaces';
 import * as S from './styles';
 
-const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, testID }) => {
+const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, testID, navigation }) => {
+
+  const { navigate } = useNavigation<any>();
+
+  const navigateScreen = useCallback(async () => {
+    navigate('Configuration')
+  }, []);
+
   return (
     <S.Container>
       <S.VerticalView>
@@ -14,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, tes
       <S.VerticalView alignRight={true}>
         <S.IconsContainer>
           <S.Button>
-            <S.Icon name='dollar-sign' style={{ marginRight: 20 }} />
+            <S.Icon name='dollar-sign' style={{ marginRight: 20 }} onPress={navigateScreen}/>
           </S.Button>
 
           <S.Button>

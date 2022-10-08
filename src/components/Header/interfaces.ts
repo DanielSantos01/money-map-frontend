@@ -3,4 +3,5 @@ export interface HeaderProps {
   username: string;
   money: number;
   testID?: string;
+  navigation: () => Promise<void>;
 }
