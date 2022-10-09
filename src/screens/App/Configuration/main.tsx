@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RoundButton, Input, HeaderWithReturn } from '../../../components';
+import { RoundButton, ConfigInput, HeaderWithReturn } from '../../../components';
 import { MainProps } from './interfaces';
 import * as S from './styles';
 
@@ -11,6 +11,8 @@ const Main: React.FC<MainProps> = ({
   setVariableGoal,
   variableGoal,
   fixedGoal,
+  setIncome,
+  income,
 }) => {
   return (
     <S.Container>
@@ -18,38 +20,39 @@ const Main: React.FC<MainProps> = ({
 
       <HeaderWithReturn title='Configurações'/>
 
-        <S.Title>banco</S.Title>
+        <S.Title>Banco</S.Title>
 
-        <Input
+        <ConfigInput
           label='Futuro'
           placeholder='30%'
           onChange={setFutureGoal}
           value={futureGoal}
         />
 
-        <Input
+        <ConfigInput
           label='Fixo'
           placeholder='30%'
           onChange={setFixedGoal}
           value={fixedGoal}
         />
 
-        <Input
+        <ConfigInput
           label='Variável'
           placeholder='30%'
           onChange={setVariableGoal}
           value={variableGoal}
         />
 
-        {/* <S.ForgotPasswordButton onPress={forgotPassword}>
-          <S.ForgotPasswordLabel>Esqueci minha senha</S.ForgotPasswordLabel>
-        </S.ForgotPasswordButton>
+        <S.Title>Renda</S.Title>
 
-        <RoundButton id='login-btn' mode='light' label='Entrar' onPress={signIn} />
+        <ConfigInput
+          label='Total'
+          placeholder='R$2.000,00'
+          onChange={setIncome}
+          value={income}
+        />
 
-        <S.NoAccountLabel>Não possui conta?</S.NoAccountLabel>
-
-        <RoundButton mode='dark' label='Criar uma conta' onPress={createAccount} /> */}
+        <RoundButton id='config-btn' mode='light' label='Salvar' />
       </S.InnerContainer>
     </S.Container>
   );

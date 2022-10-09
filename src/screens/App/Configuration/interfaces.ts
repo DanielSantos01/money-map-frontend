@@ -5,8 +5,6 @@ export interface MainProps {
     setFixedGoal: (email: string) => void;
     variableGoal: string;
     setVariableGoal: (email: string) => void;
-    setPassword: (password: string) => void;
-    signIn: () => Promise<void>
-    createAccount: () => void;
-    forgotPassword: () => void;
+    setIncome: () => void;
+    income: string;
   }
