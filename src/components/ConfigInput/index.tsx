@@ -11,6 +11,7 @@ const Input: React.FC<InputProps> = ({
   labelFont,
   label,
   icon,
+  keyBoardType
 }) => {
 
   return (
@@ -23,6 +24,7 @@ const Input: React.FC<InputProps> = ({
         value={value}
         autoCapitalize={false}
         icon={icon}
+        keyBoardType='numeric'
       />
     </S.Container>
   );

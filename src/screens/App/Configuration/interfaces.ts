@@ -1,10 +1,10 @@
 export interface MainProps {
     futureGoal: string;
-    setFutureGoal: (email: string) => void;
+    setFutureGoal: (futureGoal: string) => void;
     fixedGoal: string;
-    setFixedGoal: (email: string) => void;
+    setFixedGoal: (fixedGoal: string) => void;
     variableGoal: string;
-    setVariableGoal: (email: string) => void;
-    setIncome: () => void;
+    setVariableGoal: (variableGoal: string) => void;
+    setIncome: (income: string) => void;
     income: string;
   }

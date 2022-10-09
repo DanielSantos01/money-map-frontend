@@ -8,4 +8,5 @@ export interface InputProps {
   placeholder?: string;
   containerStyle?: StyleProp<ViewStyle>
   icon?: string;
+  keyBoardType?: string;
 };

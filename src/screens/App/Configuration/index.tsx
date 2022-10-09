@@ -3,43 +3,42 @@ import { useNavigation } from '@react-navigation/native';
 
 import Main from './main';
 
-const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+const Configuration: React.FC = () => {
+  const [fixedGoal, setFixedGoal] = useState<string>('');
+  const [variableGoal, setVariableGoal] = useState<string>('');
+  const [futureGoal, setFutureGoal] = useState<string>('');
+  const [income, setIncome] = useState<string>('');
 
   const { navigate } = useNavigation<any>();
 
-  const handleSetEmail = useCallback((value: string) => {
-    setEmail(value);
+  const handleFixedGoal = useCallback((value: string) => {
+    setFixedGoal(value);
   }, []);
 
-  const handleSetPassword = useCallback((value: string) => {
-    setPassword(value);
+  const handlesetVariableGoal = useCallback((value: string) => {
+    setVariableGoal(value);
   }, []);
 
-  const handleCreateAccount = useCallback(() => {
-    navigate('Register');
-  }, [navigate]);
-
-  const handleSignIn = useCallback(async () => {
-    navigate('Home');
+  const handlesetFutureGoal = useCallback((value: string) => {
+    setFutureGoal(value);
   }, []);
 
-  const handleForgotPassword = useCallback(async () => {
-    navigate('ForgotPassword');
-  }, [navigate]);
+  const handlesetIncome = useCallback((value: string) => {
+    setIncome(value);
+  }, []);
 
   return (
     <Main
-      email={email}
-      password={password}
-      setEmail={handleSetEmail}
-      setPassword={handleSetPassword}
-      createAccount={handleCreateAccount}
-      signIn={handleSignIn}
-      forgotPassword={handleForgotPassword}
+      fixedGoal={fixedGoal}
+      variableGoal={variableGoal}
+      futureGoal={futureGoal}
+      income={income}
+      setFixedGoal={handleFixedGoal}
+      setFutureGoal={handlesetFutureGoal}
+      setVariableGoal={handlesetVariableGoal}
+      setIncome={handlesetIncome}
     />
   );
 };
 
-export default Login;
+export default Configuration;

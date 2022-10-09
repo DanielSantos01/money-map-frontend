@@ -50,6 +50,7 @@ const Main: React.FC<MainProps> = ({
           placeholder='R$2.000,00'
           onChange={setIncome}
           value={income}
+          keyBoardType='numeric'
         />
 
         <RoundButton id='config-btn' mode='light' label='Salvar' />
