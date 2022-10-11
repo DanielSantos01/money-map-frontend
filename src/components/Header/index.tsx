@@ -13,6 +13,10 @@ const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, tes
     navigate('Configuration')
   }, []);
 
+  const navigateAdd = useCallback(async () => {
+    navigate('Add')
+  }, []);
+
   return (
     <S.Container>
       <S.VerticalView>
@@ -27,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, tes
           </S.Button>
 
           <S.Button>
-            <S.Icon name='help-circle' style={{ fontSize: 25 }} />
+            <S.Icon name='help-circle' style={{ fontSize: 25 }} onPress={navigateAdd}/>
           </S.Button>
         </S.IconsContainer>
 

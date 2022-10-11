@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
+  height: 100%;
 `;
 
 export const InnerContainer = styled.View`
@@ -10,13 +11,20 @@ export const InnerContainer = styled.View`
   padding: 0px 40px;
 `;
 
+export const InnerContainerCategory = styled.View`
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+
 export const Title = styled.Text`
   font-size: 16px;
   margin-top: 12%;
-  color: #f6f6f6;
+  color: #fff;
   margin-left: -270px;
   font-family: ${({ theme }) => theme.fonts.raleway.bold};
   font-weight: 700;
-  opacity: 0.6;
   margin-bottom: -7%;
 `;

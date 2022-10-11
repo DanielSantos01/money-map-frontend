@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import Main from './main';
 
-const Configuration: React.FC = () => {
+const Add: React.FC = () => {
   
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
@@ -42,4 +42,4 @@ const Configuration: React.FC = () => {
   );
 };
 
-export default Configuration;
+export default Add;

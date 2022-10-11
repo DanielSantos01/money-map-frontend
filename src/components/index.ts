@@ -5,3 +5,4 @@ export { default as Header } from './Header';
 export { default as MonthsList } from './MonthsList';
 export { default as ConfigInput } from './ConfigInput';
 export { default as LogList } from './MonthLogs';
+export { default as CategorySelector } from './CategorySelector';
