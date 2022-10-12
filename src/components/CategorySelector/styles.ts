@@ -20,6 +20,7 @@ export const Container = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 2%;
 `;
 
 export const Container2 = styled.TouchableOpacity`
@@ -30,7 +31,8 @@ export const Container2 = styled.TouchableOpacity`
   border-radius: 30px;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  margin-left: 2%;
 `;
 
 export const Label = styled.Text<LabelProps>`
@@ -39,15 +41,10 @@ export const Label = styled.Text<LabelProps>`
   font-family: ${({ theme, font }) => theme.fonts.raleway[font || 'regular']};
   margin-bottom: 5px;
   font-weight: 400;
+  margin-left: 2%;
 `;
 
-export const TogglePasswordVisibilityButton = styled.TouchableOpacity`
-  top: 55%;
-  right: 6%;
-  position: absolute;
-`;
-
-export const Icon = styled(Feather)`
-  font-size: 20px;
-  color: ${({ theme }) => theme.colors.onSurface};
+export const Img = styled.Image`
+  height: 45%;
+  width: 45%;
 `;

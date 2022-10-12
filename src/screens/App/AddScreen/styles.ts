@@ -1,9 +1,15 @@
 import styled from 'styled-components/native';
 
+
 export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
   height: 100%;
+  `;
+
+export const ScrollArea = styled.ScrollView`
+  width: auto;
+  height: auto;
 `;
 
 export const InnerContainer = styled.View`
@@ -13,9 +19,10 @@ export const InnerContainer = styled.View`
 
 export const InnerContainerCategory = styled.View`
   display: flex;
+  max-width: 80%;
   flex-direction: row;
   /* align-items: center; */
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 `;
 
