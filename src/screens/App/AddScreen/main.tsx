@@ -62,7 +62,7 @@ const Main: React.FC<MainProps> = ({
               <CategorySelector label='Variável' value={A.Cart}/>
             </S.InnerContainerCategory>
 
-            <S.Title>Sub Categoria</S.Title>
+            <S.TitleSubCat>Sub Categoria</S.TitleSubCat>
             <S.InnerContainerCategory>
               <CategorySelector label='oi' value={A.shoppingBag2}/>
               <CategorySelector label='oi' value={A.shoppingBag2}/>
@@ -73,7 +73,7 @@ const Main: React.FC<MainProps> = ({
               <CategorySelector label='oi' value={A.shoppingBag2}/>
             </S.InnerContainerCategory>
 
-            <RoundButton id='config-btn' mode='light' label='Adicionar' />
+            <RoundButton id='config-btn' mode='light' label='Adicionar' style={{marginBottom:'10%'}}/>
 
         </S.InnerContainer>
       </S.ScrollArea>
