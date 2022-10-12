@@ -3,10 +3,6 @@ import React from 'react';
 import { RoundButton, ConfigInput, HeaderWithReturn, CategorySelector } from '../../../components';
 import { MainProps } from './interfaces';
 import * as S from './styles';
-
-// import {shoppingBag2} from '../../../assets';
-// import {Cart} from '../../../assets';
-// import {shoppingBag2} from '../../../assets';
 import * as A from '../../../assets';
 
 const Main: React.FC<MainProps> = ({
@@ -73,7 +69,7 @@ const Main: React.FC<MainProps> = ({
               <CategorySelector label='oi' value={A.shoppingBag2}/>
             </S.InnerContainerCategory>
 
-            <RoundButton id='config-btn' mode='light' label='Adicionar' style={{marginBottom:'10%'}}/>
+            <RoundButton id='add-btn' mode='light' label='Adicionar' style={{marginBottom:'10%'}}/>
 
         </S.InnerContainer>
       </S.ScrollArea>

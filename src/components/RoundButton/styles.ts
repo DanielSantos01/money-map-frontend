@@ -15,7 +15,6 @@ export const Container = styled.TouchableOpacity<StyleProps>`
   opacity: ${({ disabled }) => disabled ? 0.6 : 1 };
   background-color: ${({ theme, mode }) => mode === 'light' ? theme.colors.onSurface : theme.colors.primaryGray};
   margin-top: 16%;
-  /* margin-bottom: 3px; */
 `;
 
 export const Label = styled.Text<StyleProps>`
