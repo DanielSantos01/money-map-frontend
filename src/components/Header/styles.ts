@@ -13,6 +13,8 @@ export const Container = styled.View`
   flex-direction: row;
 `;
 
+export const ProfileButton = styled.TouchableOpacity``;
+
 export const Profile = styled.Image`
   height: 40px;
   width: 40px;

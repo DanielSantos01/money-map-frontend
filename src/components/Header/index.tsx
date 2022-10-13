@@ -10,16 +10,22 @@ const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, tes
 
   const navigateScreen = useCallback(async () => {
     navigate('Configuration');
-  }, []);
+  }, [navigate]);
 
   const navigateFAQ = useCallback(async () => {
     // TODO
   }, []);
 
+  const navigateSummary = useCallback(async () => {
+    navigate('Summary');
+  }, [navigate]);
+
   return (
     <S.Container>
       <S.VerticalView>
-        <S.Profile source={{ url: profilePictureUrl }} id={testID} />
+        <S.ProfileButton onPress={navigateSummary}>
+          <S.Profile source={{ url: profilePictureUrl }} id={testID} />
+        </S.ProfileButton>
         <S.Username>Olá, {username}</S.Username>
       </S.VerticalView>
 

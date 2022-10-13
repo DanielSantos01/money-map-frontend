@@ -1,7 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home } from '../screens';
-import { Configuration, Add } from '../screens';
+import { Home, Configuration, Add, Summary } from '../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,6 +9,7 @@ const AppRoutes: React.FC = () => (
     <Stack.Screen name="Home" component={Home} />
     <Stack.Screen name="Configuration" component={Configuration} />
     <Stack.Screen name="Add" component={Add} />
+    <Stack.Screen name="Summary" component={Summary} />
   </Stack.Navigator>
 );
 
