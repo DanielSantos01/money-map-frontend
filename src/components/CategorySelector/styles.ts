@@ -48,3 +48,8 @@ export const Img = styled.Image`
   height: 45%;
   width: 45%;
 `;
+
+export const Icon = styled(Feather)`
+  font-size: 22px;
+  color: white;
+`;

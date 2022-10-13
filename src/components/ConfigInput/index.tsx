@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 
 import { InputProps } from './interfaces';
 import * as S from './styles';
@@ -11,7 +11,6 @@ const Input: React.FC<InputProps> = ({
   labelFont,
   label,
   icon,
-  keyBoardType
 }) => {
 
   return (

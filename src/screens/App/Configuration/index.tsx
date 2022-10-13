@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import { useNavigation } from '@react-navigation/native';
 
 import Main from './main';
 
@@ -8,8 +7,6 @@ const Configuration: React.FC = () => {
   const [variableGoal, setVariableGoal] = useState<string>('');
   const [futureGoal, setFutureGoal] = useState<string>('');
   const [income, setIncome] = useState<string>('');
-
-  const { navigate } = useNavigation<any>();
 
   const handleFixedGoal = useCallback((value: string) => {
     setFixedGoal(value);

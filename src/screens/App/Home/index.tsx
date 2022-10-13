@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 
-import { Header, MonthsList, LogList } from '@/components';
+import { Header, MonthsList, LogList, FloatingButton } from '@/components';
 import { MonthModel } from './interfaces';
 import * as S from './styles';
 
@@ -24,6 +24,8 @@ const MainScreen: React.FC = () => {
       <S.LogsContainer>
         <LogList index={month.index} label={month.label} />
       </S.LogsContainer>
+
+      <FloatingButton />
     </S.Container>
   );
 };

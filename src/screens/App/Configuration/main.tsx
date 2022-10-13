@@ -17,8 +17,7 @@ const Main: React.FC<MainProps> = ({
   return (
     <S.Container>
       <S.InnerContainer>
-
-      <HeaderWithReturn title='Configurações'/>
+        <HeaderWithReturn title='Configurações'/>
 
         <S.Title>Banco</S.Title>
 

@@ -24,6 +24,7 @@ export const InnerContainerCategory = styled.View`
   /* align-items: center; */
   justify-content: space-around;
   flex-wrap: wrap;
+  width: 100%;
 `;
 
 export const Title = styled.Text`

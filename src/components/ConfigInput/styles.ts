@@ -13,10 +13,9 @@ export const Container = styled.View`
 export const Label = styled.Text<LabelProps>`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.onSurface};
-  font-family: ${({ theme, font }) => theme.fonts.raleway[font || 'regular']};
+  font-family: ${({ theme, font }) => theme.fonts.raleway[font || 'semibold']};
   margin-bottom: 5px;
   font-weight: 700;
-  margin-left: 17.27px;
 `;
 
 export const TextInput = styled.TextInput`

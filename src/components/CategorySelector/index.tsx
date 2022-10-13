@@ -24,11 +24,11 @@ const CategoryBtn: React.FC<InputProps> = ({
     <S.ContentContainer>
       {touch ?
         <S.Container style={containerStyle} onPress={toggleCategory}>
-          <S.Img source={value}/>
+          <S.Icon name={value} />
         </S.Container>
         :  
         <S.Container2 style={containerStyle} onPress={toggleCategory}>
-          <S.Img source={value}/>
+          <S.Icon name={value} />
         </S.Container2>
       }
       <S.Label font={labelFont}>{label}</S.Label>

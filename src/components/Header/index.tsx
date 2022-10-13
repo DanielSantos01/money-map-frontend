@@ -1,20 +1,19 @@
-import SignInRoutes from '@/routes/signIn.routes';
-import { useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { HeaderProps } from './interfaces';
 import * as S from './styles';
 
-const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, testID, navigation }) => {
+const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, testID }) => {
 
   const { navigate } = useNavigation<any>();
 
   const navigateScreen = useCallback(async () => {
-    navigate('Configuration')
+    navigate('Configuration');
   }, []);
 
-  const navigateAdd = useCallback(async () => {
-    navigate('Add')
+  const navigateFAQ = useCallback(async () => {
+    // TODO
   }, []);
 
   return (
@@ -31,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, tes
           </S.Button>
 
           <S.Button>
-            <S.Icon name='help-circle' style={{ fontSize: 25 }} onPress={navigateAdd}/>
+            <S.Icon name='help-circle' style={{ fontSize: 25 }} onPress={navigateFAQ}/>
           </S.Button>
         </S.IconsContainer>
 
