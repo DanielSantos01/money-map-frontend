@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { RoundButton, Input, HeaderWithReturn } from '../../../components';
 import { MainProps } from './interfaces';
 import * as S from './styles';
+
+import { useAxios } from '@/utils/useAxios';
 
 const Main: React.FC<MainProps> = ({
   onChange,
@@ -12,6 +14,21 @@ const Main: React.FC<MainProps> = ({
   handleBackToSignIn,
   handleCreateAccount,
 }) => {
+
+  const [ axiosPost ] = useAxios('post');
+
+  const handleAccount = async () => {
+      await axiosPost({
+        url: '/user',
+        body: {
+          email: formulary.email,
+          password: formulary.password,
+          firstName: formulary.firstName,
+          lastName: formulary.lastName
+        }
+      });
+  };
+
   return (
     <S.Container>
       <S.InnerContainer>
@@ -84,7 +101,7 @@ const Main: React.FC<MainProps> = ({
           label='Criar conta'
           disabled={!hasAgreed}
           style={{ marginBottom: 25 }}
-          onPress={handleCreateAccount}
+          onPress={handleAccount}
         />
 
         <RoundButton
