@@ -1,3 +1,4 @@
+import { formatMoney } from '@/utils/formatMoney';
 import React from 'react';
 import { FlatList } from 'react-native';
 import PieChart from 'react-native-pie-chart';
@@ -34,7 +35,7 @@ const Graph: React.FC<GraphProps> = ({ metrics, size }) => {
             </S.DisclaimerContainer>
 
             <S.LabelContainer>
-              <S.Value style={{ color: item.color }}>{`R$ ${item.value.toFixed(2)}`}</S.Value>
+              <S.Value style={{ color: item.color }}>{formatMoney(item.value)}</S.Value>
             </S.LabelContainer>
           </S.AuxContainer>
         )}
@@ -42,7 +43,7 @@ const Graph: React.FC<GraphProps> = ({ metrics, size }) => {
 
       <S.TotalContainer>
         <S.TotalLabel>Total</S.TotalLabel>
-        <S.TotalValue>R$ {(gain - spend).toFixed(2)}</S.TotalValue>
+        <S.TotalValue>{formatMoney((gain + spend))}</S.TotalValue>
       </S.TotalContainer>
     </S.GraphContainer>
   );

@@ -35,7 +35,8 @@ export const Icon = styled(Feather)`
 `;
 
 export const DayLabel = styled.Text`
-  font-size: 16px;
+  font-size: 12px;
+  width: 25%;
   color: ${({ theme }) => theme.colors.onSurface};
   font-family: ${({ theme }) => theme.fonts.raleway.bold};
 `;

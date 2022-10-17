@@ -1,17 +1,63 @@
-export default [
+export const graphData = [
   {
-    key: 'spend',
-    count: 33,
-    color: '#CF6679'
+    color: '#CF6679',
+    value: 33,
+    label: 'Gastos',
+    icon: 'arrow-down-circle'
   },
   {
-    key: 'gain',
-    count: 33,
-    color: '#03DAC4'
+    color: '#03DAC4',
+    value: 33,
+    label: 'Ganhos',
+    icon: 'arrow-up-circle'
   },
   {
-    key: 'rest',
-    count: 33,
-    color: '#BB86FC'
+    color: '#BB86FC',
+    value: 33,
+    label: 'Saldo',
+    icon: 'activity'
   }
+];
+
+export const viewerData = [
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
+  {
+    label: 'transporte',
+    value: 45
+  },
 ];

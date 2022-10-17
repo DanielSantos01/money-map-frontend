@@ -33,7 +33,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={moneyMapTheme}>
       <NavigationContainer>
-        <StatusBar translucent barStyle='light-content' />
+        <StatusBar barStyle='light-content' backgroundColor="#121212" />
         <Routes />
       </NavigationContainer>
     </ThemeProvider>

@@ -50,21 +50,22 @@ export const Value = styled.Text`
 
 export const TotalLabel = styled.Text`
   font-size: 12px;
+  margin-bottom: 3px;
   font-family: ${({ theme }) => theme.fonts.raleway.regular};
-  color: ${({ theme }) => theme.colors.primaryGray};
+  color: ${({ theme }) => theme.colors.onSurface};
 `;
 
 export const TotalValue = styled.Text`
-  font-size: 12px;
+  font-size: 10px;
   font-family: ${({ theme }) => theme.fonts.raleway.bold};
   color: ${({ theme }) => theme.colors.onSurface};
 `;
 
 export const TotalContainer = styled.View`
   position: absolute;
-  width: 50px;
-  height: 50px;
-  left: 13.7%;
+  width: 70px;
+  height: 70px;
+  left: 11.5%;
   height: 50px;
   align-items: center;
   justify-content: center;
