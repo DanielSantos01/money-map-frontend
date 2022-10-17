@@ -6,4 +6,11 @@ export interface MainProps {
   signIn: () => Promise<void>
   createAccount: () => void;
   forgotPassword: () => void;
-}
+  formulary: FormularyModel;
+  onChange: (key: string) => (value: string) => void;
+};
+
+export interface FormularyModel {
+  email: string;
+  password: string;
+};

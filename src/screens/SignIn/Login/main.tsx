@@ -6,13 +6,20 @@ import * as S from './styles';
 
 const Main: React.FC<MainProps> = ({
   createAccount,
+  onChange,
   email,
   password,
+  formulary,
   setEmail,
   setPassword,
   signIn,
   forgotPassword,
 }) => {
+
+  const handleLogin = () => {
+    // console.log(formulary)
+  }
+
   return (
     <S.Container>
       <S.InnerContainer>
@@ -21,15 +28,15 @@ const Main: React.FC<MainProps> = ({
         <Input
           label='E-mail'
           placeholder='E-mail@example.com'
-          onChange={setEmail}
-          value={email}
+          onChange={onChange('email')}
+          value={formulary.email}
         />
 
         <Input
           label='Senha'
           placeholder='Insira sua senha'
-          onChange={setPassword}
-          value={password}
+          onChange={onChange('password')}
+          value={formulary.password}
           isPassword
         />
 
