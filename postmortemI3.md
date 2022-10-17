@@ -34,9 +34,9 @@ Início da Iteração | Término da iteração
 | Fix no crud user | `Paula` |
 | Apresentação do projeto (pitch) em formato PDF | `Pedro` |
 | Screencast curto (até 3 minutos) de utilização do produto (contendo legenda ou voz) | `Pedro`,`Daniel`, `Paula`, `Mauricio` |
-| Última entrega: deploy de mais algumas HU's | `Mauricio`,`Daniel`, `Paula` |
 | Criação do postmortem | `Pedro` |
 | Revisão e atualização do readme | `Daniel`, `Pedro` |
 
 ### O que não foi feito
 * Criação do planejamento no formato CQM
+* Última entrega: deploy de mais algumas HU's
