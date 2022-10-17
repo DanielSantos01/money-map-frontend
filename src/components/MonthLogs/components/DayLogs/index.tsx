@@ -1,3 +1,4 @@
+import { formatMoney } from '@/utils/formatMoney';
 import React, { useCallback } from 'react';
 import { FlatList, ListRenderItem } from 'react-native';
 
@@ -15,7 +16,7 @@ const DayLogs: React.FC<DayLogsProps> = ({ data }) => {
             color: isExpanse ? '#CF6679' : '#03DAC4'
           }}
         />
-        <S.DayLabel>{item.label}: R$: {item.value.toString().replace('.', ',')}</S.DayLabel>
+        <S.DayLabel>{item.label}: {formatMoney(item.value)}</S.DayLabel>
       </S.Item>
     );
   }, []);

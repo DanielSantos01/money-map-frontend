@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { HeaderProps } from './interfaces';
 import * as S from './styles';
+import { formatMoney } from '@/utils/formatMoney';
 
 const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, testID }) => {
 
@@ -40,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ money, profilePictureUrl, username, tes
           </S.Button>
         </S.IconsContainer>
 
-        <S.Value>R$ {money.toString().replace('.', ',')}</S.Value>
+        <S.Value>{formatMoney(money)}</S.Value>
       </S.VerticalView>
     </S.Container>
   );

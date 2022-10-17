@@ -2,7 +2,8 @@ import React, { useState, useCallback } from 'react';
 import { HeaderWithReturn, SpendCategoriesList } from '@/components';
 
 import { CategoryModel } from './interfaces';
-import { Graph } from './components';
+import { Graph, Viewer } from './components';
+import { graphData, viewerData } from './data';
 import * as S from './styles';
 
 const Summary: React.FC = () => {
@@ -18,29 +19,9 @@ const Summary: React.FC = () => {
         <HeaderWithReturn title='Sumário' />
         <SpendCategoriesList onSelectItem={handleSelectCategory} />
 
-        <Graph
-          size={120}
-          metrics={[
-            {
-              color: '#CF6679',
-              value: 33,
-              label: 'Gastos',
-              icon: 'arrow-down-circle'
-            },
-            {
-              color: '#03DAC4',
-              value: 33,
-              label: 'Ganhos',
-              icon: 'arrow-up-circle'
-            },
-            {
-              color: '#BB86FC',
-              value: 33,
-              label: 'Saldo',
-              icon: 'activity'
-            }
-          ]}
-        />
+        <Graph size={120} metrics={graphData} />
+
+        <Viewer data={viewerData} />
       </S.ContentContainer>
     </S.Container>
   );

@@ -5,6 +5,7 @@ import { ExpensesListProps, PreviewModel} from './interfaces';
 import { DayLogs } from './components';
 import data from './mockData';
 import * as S from './styles';
+import { formatMoney } from '@/utils/formatMoney';
 
 const ExpensesList: React.FC<ExpensesListProps> = ({ index, label }) => {
   const [openeds, setOpened] = useState<number[]>([]);
@@ -31,25 +32,25 @@ const ExpensesList: React.FC<ExpensesListProps> = ({ index, label }) => {
     return (
       <S.ItemContainer>
         <S.DayButton onPress={handleSelect(current)}>
-          <S.DayLabel>{item} de {label.toLowerCase()}</S.DayLabel>
+          <S.DayLabel numberOfLines={1}>{item} {label.slice(0, 3).toLowerCase()}</S.DayLabel>
           <S.RowContainer>
             {expanse && (
               <S.PreviewContainer>
                 <S.Icon name='arrow-down-circle' style={{ color: '#CF6679' }} />
-                <S.PreviewValue color='#CF6679'>R$ {expanse.toString().replace('.', ',')}</S.PreviewValue>
+                <S.PreviewValue color='#CF6679'>{formatMoney(expanse)}</S.PreviewValue>
               </S.PreviewContainer>
             )}
 
             {gain && (
               <S.PreviewContainer>
                 <S.Icon name='arrow-up-circle' style={{ color: '#03DAC4' }} />
-                <S.PreviewValue color='#03DAC4'>R$ {gain.toString().replace('.', ',')}</S.PreviewValue>
+                <S.PreviewValue color='#03DAC4'>{formatMoney(gain)}</S.PreviewValue>
               </S.PreviewContainer>
             )}
 
             <S.PreviewContainer>
               <S.Icon name='activity' style={{ color: '#BB86FC' }} />
-              <S.PreviewValue color='#BB86FC'>R$ {(gain - expanse).toString().replace('.', ',')}</S.PreviewValue>
+              <S.PreviewValue color='#BB86FC'>{formatMoney((gain - expanse))}</S.PreviewValue>
             </S.PreviewContainer>
 
             <S.Icon name={isOpen ? 'chevron-down' : 'chevron-right'} style={{ marginLeft: 10 }} />
