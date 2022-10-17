@@ -4,12 +4,15 @@ import { FormularyModel } from './interfaces';
 import { useAxios } from '@/utils/useAxios';
 
 import Main from './main';
+import { useAuth } from '@/hooks';
 
 const Login: React.FC = () => {
   const [formulary, setFormulary] = useState<FormularyModel>({} as FormularyModel);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [axiosPost] = useAxios('post');
+
+  const { handleAuth } = useAuth();
 
   const { navigate } = useNavigation<any>();
 
@@ -32,24 +35,8 @@ const Login: React.FC = () => {
   }, [navigate]);
 
   const handleSignIn = useCallback(async () => {
-    // navigate('Home');
-    console.log(formulary);
-
-    await axiosPost({
-      url: '/user/login',
-      body: {
-        email: formulary.email,
-        password: formulary.email,
-      },
-      success: () => {
-        console.log('gigante!');
-      },
-      error: (error: any) => {
-        console.log('algo deu errado');
-        console.log(error);
-      },
-    });
-  }, [formulary]);
+    handleAuth({ email, password });
+  }, [handleAuth]);
 
   const handleForgotPassword = useCallback(async () => {
     navigate('ForgotPassword');
