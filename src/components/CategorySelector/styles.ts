@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
+import {InputProps} from './interfaces';
 
 interface LabelProps {
   font?: 'regular' | 'medium' | 'semibold' | 'bold' | 'thin';
@@ -11,11 +12,12 @@ export const ContentContainer = styled.View`
   align-items: center;
 `;
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled.TouchableOpacity<Pick<InputProps, 'toggle'>>`
+
   width: 55px;
   height: 55px;
   margin-top: 40px;
-  background-color: #BB86FC;
+  background-color: ${({ theme , toggle}) => toggle ? theme.colors.primaryGray : '#BB86FC' };
   border-radius: 30px;
   display: flex;
   justify-content: center;
