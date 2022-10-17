@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FlatList, ListRenderItem } from 'react-native';
 
 import { ExpensesListProps, PreviewModel} from './interfaces';
@@ -6,9 +6,18 @@ import { DayLogs } from './components';
 import data from './mockData';
 import * as S from './styles';
 import { formatMoney } from '@/utils/formatMoney';
+import axios from 'axios';
 
 const ExpensesList: React.FC<ExpensesListProps> = ({ index, label }) => {
+  const [userData, setUserData] = useState();
+
   const [openeds, setOpened] = useState<number[]>([]);
+
+  useEffect(() => {
+    axios.get('http://172.22.76.25:8080/costs/findUser/000e758f-8eb6-457c-bfb1-37c0bccb0c65').then((res) => setUserData(res.data.data));
+  }, []);
+  console.log(userData);
+
 
   const handleSelect = useCallback((index: number) => () => {
     if(openeds.indexOf(index) !== -1) {
@@ -29,6 +38,7 @@ const ExpensesList: React.FC<ExpensesListProps> = ({ index, label }) => {
   const renderItem: ListRenderItem<string> = useCallback(({ item, index: current }) => {
     const isOpen: boolean = openeds.indexOf(current) !== -1;
     const { expanse, gain }: PreviewModel = calculatePreview(item);
+    
     return (
       <S.ItemContainer>
         <S.DayButton onPress={handleSelect(current)}>
