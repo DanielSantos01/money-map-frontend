@@ -7,4 +7,16 @@ export interface MainProps {
     setDate: (date: Date) => void;
     value: number;
     setValue: (value: number) => void;
+    formulary: FormularyModel;
+    onChange: (key: string ) => (value: string ) => void;
   };
+
+  export interface FormularyModel {
+    name: string;
+    description: string;
+    date: Date;
+    value: number;
+    category: string,
+    subCategory: string,
+  };
+  

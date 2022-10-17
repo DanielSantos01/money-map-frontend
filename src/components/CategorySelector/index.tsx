@@ -11,26 +11,22 @@ const CategoryBtn: React.FC<InputProps> = ({
   labelFont,
   label,
   icon,
-  keyBoardType
+  keyBoardType,
+  toggle,
+  id,
+  setCat,
 }) => {
 
-  const [touch, setTouch] = useState(false);
-
-  const toggleCategory = ({toggle}) => {
-    touch === true ? setTouch(false) : setTouch(true);
+  const handleOnPress = () => {
+    onChange(id);
   };
 
+  console.log(toggle)
   return (
     <S.ContentContainer>
-      {touch ?
-        <S.Container style={containerStyle} onPress={toggleCategory}>
+        <S.Container style={containerStyle} onPress={handleOnPress} toggle={!toggle}>
           <S.Icon name={value} />
         </S.Container>
-        :  
-        <S.Container2 style={containerStyle} onPress={toggleCategory}>
-          <S.Icon name={value} />
-        </S.Container2>
-      }
       <S.Label font={labelFont}>{label}</S.Label>
     </S.ContentContainer>
   );
