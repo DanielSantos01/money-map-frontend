@@ -36,7 +36,6 @@ Início da Iteração | Término da iteração
 | Screencast curto (até 3 minutos) de utilização do produto (contendo legenda ou voz) | `Pedro`,`Daniel`, `Paula`, `Mauricio` |
 | Criação do postmortem | `Pedro` |
 | Revisão e atualização do readme | `Daniel`, `Pedro` |
-
+| Última entrega: deploy de mais algumas HU's | `Mauricio`,`Daniel`, `Paula` |
 ### O que não foi feito
 * Criação do planejamento no formato CQM
-* Última entrega: deploy de mais algumas HU's
