@@ -22,7 +22,6 @@ const MainScreen: React.FC = () => {
     setSelectedMonth(month);
   }, []);
 
-
   const fetchCosts = useCallback(async () => {
     try {
       const { data } = await axios.get<{ data: CostModel[] }>(
@@ -43,8 +42,8 @@ const MainScreen: React.FC = () => {
     <S.Container>
       <Header
         profilePictureUrl="https://instagram.frec15-1.fna.fbcdn.net/v/t51.2885-19/280098943_171767098555967_7051005647906309588_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.frec15-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=AOZg9Dz-NaYAX_59a_G&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AT-sHNgFAeB6QszNwaGXElYgxhtXqU8v_ISKWBsF81zyew&oe=633AE57D&_nc_sid=8fd12b"
-        username="Paulinha"
-        money={50.73}
+        username={'Paula'}
+        money={30}
         navigation={function (): Promise<void> {
           throw new Error('Function not implemented.');
         }}
