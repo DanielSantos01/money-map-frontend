@@ -17,21 +17,21 @@ const MainScreen: React.FC = () => {
   const [costsData, setCostsData] = useState();
 
   useEffect(() => {
-      axios.get(`http://172.22.76.25:8080/user/000e758f-8eb6-457c-bfb1-37c0bccb0c65`).then((data) => setUserData(data.data.data));
-  }, []);
+      axios.get(`http://172.22.72.43:8080/user/000e758f-8eb6-457c-bfb1-37c0bccb0c65`).then((data) => setUserData(data.data.data));
+  }, [axios]);
   console.log(userData);
   
   useEffect(() => {
-    axios.get(`http://172.22.76.25:8080/costs/findUser/000e758f-8eb6-457c-bfb1-37c0bccb0c65`).then((data) => setCostsData(data.data.data));
-  }, []);
+    axios.get(`http://172.22.72.43:8080/costs/findUser/000e758f-8eb6-457c-bfb1-37c0bccb0c65`).then((data) => setCostsData(data.data.data));
+  }, [axios]);
   console.log(costsData);
 
   return (
     <S.Container>
       <Header
         profilePictureUrl='https://instagram.frec15-1.fna.fbcdn.net/v/t51.2885-19/280098943_171767098555967_7051005647906309588_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.frec15-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=AOZg9Dz-NaYAX_59a_G&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AT-sHNgFAeB6QszNwaGXElYgxhtXqU8v_ISKWBsF81zyew&oe=633AE57D&_nc_sid=8fd12b'
-        username={userData.firstName}
-        money={Number(userData.value)}
+        username={userData?.firstName}
+        money={Number(userData?.value)}
         navigation={function (): Promise<void> {
           throw new Error('Function not implemented.');
         }}
