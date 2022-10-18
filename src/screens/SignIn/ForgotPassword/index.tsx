@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationHelpersContext, useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import { useAxios } from '@/utils/useAxios';
 
@@ -9,9 +9,11 @@ const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [axiosPost] = useAxios('post');
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState<string>('');
 
   const { goBack } = useNavigation();
+
+  const { navigate } = useNavigation<any>();
 
   const handleSetEmail = useCallback((value: string) => {
     setEmail(value);
@@ -23,16 +25,13 @@ const ForgotPassword: React.FC = () => {
 
   const redefinePassword = useCallback(async () => {
     console.log(email);
-    console.log(password); 
+    // console.log(password); 
 
-    await axios.post('http://192.168.15.35:8080/user/forgot-password', 
-      {email: email}).then((data) => {setUserData(data.data.data.id)});
-    
-    console.log(userData);
-
-    await axios.patch(`http://192.168.15.35:8080/user/${userData}`, {
+    await axios.patch(`http://192.168.15.35:8080/user/forgot-password`, {
+      email: email,
       password: password,
-    });
+    }).then(() => navigate('Login'));
+
   }, []);
 
   const handleBackToSignIn = useCallback(() => {
