@@ -27,14 +27,19 @@ const Main: React.FC<MainProps> = ({
   const [axiosGet] = useAxios('get');
 
   useEffect(() => {
-    axios.get('http://172.22.76.25:8080/subCategory').then((data) => setSubCategory(data.data.data));
-  }, [axios]);
+    {async () => {
+      await axios.get('http://172.22.76.25:8080/subCategory').then((data) => setSubCategory(data.data.data));
+
+    }}
+  }, []);
 
   useEffect(() => {
-    axios.get('http://172.22.76.25:8080/category').then((data) => setCategory(data.data.data));
-  }, [axios])
+    {async() => {
+      axios.get('http://172.22.76.25:8080/category').then((data) => setCategory(data.data.data));
 
-
+    }}
+  }, [])
+  
   const handleAdd = async () => {
     console.log(formulary);
     console.log(subCategory[0]);
@@ -110,7 +115,7 @@ const Main: React.FC<MainProps> = ({
 
           <S.Title>Categoria</S.Title>
           <S.InnerContainerCategory>
-            {category.map((cat) => {
+            {category?.map((cat) => {
               const isSelected = selectedCategories.includes(cat.id);
 
               return (
@@ -123,7 +128,7 @@ const Main: React.FC<MainProps> = ({
           <S.TitleSubCat>Sub Categoria</S.TitleSubCat>
           <S.InnerContainerCategory>
 
-            {subCategory.map((subCat) => {
+            {subCategory?.map((subCat) => {
               const isSelected = selectedSubCategories.includes(subCat.id);
 
               return (
