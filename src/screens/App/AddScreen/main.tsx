@@ -5,6 +5,7 @@ import { MainProps } from './interfaces';
 import * as S from './styles';
 import { useAxios } from '@/utils/useAxios';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 const Main: React.FC<MainProps> = ({
   name,
@@ -23,21 +24,17 @@ const Main: React.FC<MainProps> = ({
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [subCategory, setSubCategory] = useState([]);
   const [category, setCategory] = useState([]);
-  const [subCat, setSubCat] = useState();
+  const [subCat, setSubCat] = useState('');
   const [axiosGet] = useAxios('get');
 
-  useEffect(() => {
-    {async () => {
-      await axios.get('http://172.22.76.25:8080/subCategory').then((data) => setSubCategory(data.data.data));
+  const { navigate } = useNavigation();
 
-    }}
+  useEffect(() => {
+       axios.get('http://192.168.15.35:8080/subCategory').then((data) => setSubCategory(data.data.data));
   }, []);
 
   useEffect(() => {
-    {async() => {
-      axios.get('http://172.22.76.25:8080/category').then((data) => setCategory(data.data.data));
-
-    }}
+      axios.get('http://192.168.15.35:8080/category').then((data) => setCategory(data.data.data));
   }, [])
   
   const handleAdd = async () => {
@@ -51,10 +48,21 @@ const Main: React.FC<MainProps> = ({
         description: formulary.description,
         value: formulary.value,
         date: formulary.date,
-        subCategoryId: subCat,
-        userId: "000e758f-8eb6-457c-bfb1-37c0bccb0c65",
+        subCategoryId: '91f62a20-d856-46f4-b6b9-06af213c1341',
+        userId: "271dd653-b45d-40b9-b9a5-020fe5c08af8",
       },
     });
+
+    await axiosPost({
+      url: '/costs/remove-money/b2f4fcf7-ba8e-499a-bd04-30d64eb1701e',
+      body: {
+        value: formulary.value
+      },
+      success: () => {
+        navigate('Home');
+      },
+    });
+
   };
 
   const handleChangeSubCategory = (id: string) => {
@@ -76,6 +84,8 @@ const Main: React.FC<MainProps> = ({
       return [...categories, id];
     });
   };
+
+  console.log('AAAAAAAAAAAAAAAAAAAAAAAAA', subCat);
 
   return (
     <S.Container>

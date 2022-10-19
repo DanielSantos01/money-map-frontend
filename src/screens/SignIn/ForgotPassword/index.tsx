@@ -32,7 +32,7 @@ const ForgotPassword: React.FC = () => {
       password: password,
     }).then(() => navigate('Login'));
 
-  }, []);
+  }, [email, password]);
 
   const handleBackToSignIn = useCallback(() => {
     goBack();
