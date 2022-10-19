@@ -1,5 +1,7 @@
 export interface MonthsListProps {
-  onSelectItem: (index: number, label: string) => Promise<void>;
+  months: string[];
+  selectedMonth: string;
+  onSelectItem: (month: string) => void;
 }
 
 export interface PagingModel {
