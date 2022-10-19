@@ -25,7 +25,7 @@ const ForgotPassword: React.FC = () => {
 
   const redefinePassword = useCallback(async () => {
     console.log(email);
-    // console.log(password); 
+    console.log(password); 
 
     await axios.patch(`http://192.168.15.35:8080/user/forgot-password`, {
       email: email,
