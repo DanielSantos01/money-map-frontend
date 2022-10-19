@@ -7,6 +7,7 @@ import * as SplashScreen from 'expo-splash-screen';
 
 import { moneyMapTheme } from './src/styles/theme';
 import Routes from './src/routes';
+import { AuthProvider } from '@/hooks';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,10 +33,12 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={moneyMapTheme}>
-      <NavigationContainer>
-        <StatusBar translucent barStyle='light-content' />
-        <Routes />
-      </NavigationContainer>
+      <AuthProvider>
+        <NavigationContainer>
+          <StatusBar barStyle='light-content' backgroundColor="#121212" />
+          <Routes />
+        </NavigationContainer>
+      </AuthProvider>
     </ThemeProvider>
   );
 };

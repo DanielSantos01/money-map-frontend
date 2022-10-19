@@ -1,0 +1,22 @@
+{
+    "build": {
+      "development": {
+        "extends": "production",
+        "developmentClient": true,
+        "distribution": "internal"
+      },
+      "preview": {
+        "extends": "production",
+        "distribution": "internal"
+      },
+      "production": {
+        "node": "16.14.0",
+        "env": {
+            "API_URL": "https://api.adviceslip.com/advice"
+        },
+        "android": {
+            "buildType": "apk"
+        }
+      }
+    }
+}

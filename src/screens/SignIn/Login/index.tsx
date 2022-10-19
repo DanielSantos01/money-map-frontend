@@ -2,10 +2,13 @@ import React, { useState, useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import Main from './main';
+import { useAuth } from '@/hooks';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  const { handleAuth } = useAuth();
 
   const { navigate } = useNavigation<any>();
 
@@ -22,8 +25,8 @@ const Login: React.FC = () => {
   }, [navigate]);
 
   const handleSignIn = useCallback(async () => {
-    //TODO
-  }, []);
+    handleAuth({ email, password });
+  }, [handleAuth]);
 
   const handleForgotPassword = useCallback(async () => {
     navigate('ForgotPassword');
