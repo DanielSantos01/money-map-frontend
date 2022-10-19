@@ -16,7 +16,6 @@ const ExpensesList: React.FC<ExpensesListProps> = ({ index, label }) => {
   useEffect(() => {
     axios.get('http://172.22.76.25:8080/costs/findUser/000e758f-8eb6-457c-bfb1-37c0bccb0c65').then((res) => setUserData(res.data.data));
   }, []);
-  console.log(userData);
 
 
   const handleSelect = useCallback((index: number) => () => {

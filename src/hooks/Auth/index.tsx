@@ -20,7 +20,7 @@ export const AuthProvider: React.FC<I.IAuthProvider> = ({ children }) => {
       setUserData(response.data.data);
       setIsAuthenticated(true);
     } catch(err) {
-      console.log(err);
+      // pass
     }
     setLoading(false);
   }, []);
