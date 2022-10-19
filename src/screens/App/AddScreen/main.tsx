@@ -6,6 +6,7 @@ import * as S from './styles';
 import { useAxios } from '@/utils/useAxios';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '@/hooks';
 
 const Main: React.FC<MainProps> = ({
   name,
@@ -35,7 +36,10 @@ const Main: React.FC<MainProps> = ({
 
   useEffect(() => {
       axios.get('http://192.168.15.35:8080/category').then((data) => setCategory(data.data.data));
-  }, [])
+  }, []);
+
+  const { userData } = useAuth();
+  const userId = userData.id
   
   const handleAdd = async () => {
     await axiosPost({
@@ -45,8 +49,8 @@ const Main: React.FC<MainProps> = ({
         description: formulary.description,
         value: formulary.value,
         date: formulary.date,
-        subCategoryId: '91f62a20-d856-46f4-b6b9-06af213c1341',
-        userId: "271dd653-b45d-40b9-b9a5-020fe5c08af8",
+        subCategoryId: subCat,
+        userId: userId,
       },
     });
 
@@ -59,7 +63,6 @@ const Main: React.FC<MainProps> = ({
         navigate('Home');
       },
     });
-
   };
 
   const handleChangeSubCategory = (id: string) => {
@@ -67,7 +70,8 @@ const Main: React.FC<MainProps> = ({
       if (subCategories.includes(id)) {
         return subCategories.filter((sb) => sb !== id);
       };
-
+      
+      setSubCat(id);
       return [...subCategories, id];
     });
   };
@@ -81,8 +85,6 @@ const Main: React.FC<MainProps> = ({
       return [...categories, id];
     });
   };
-
-  console.log('AAAAAAAAAAAAAAAAAAAAAAAAA', subCat);
 
   return (
     <S.Container>
@@ -139,7 +141,8 @@ const Main: React.FC<MainProps> = ({
               const isSelected = selectedSubCategories.includes(subCat.id);
 
               return (
-                <CategorySelector key={subCat.id} label={subCat.name} value="shopping-bag" onChange={handleChangeSubCategory} id={subCat.id} toggle={isSelected} setCat={() => setSubCat(subCat.id)}/>
+                <CategorySelector key={subCat.id} label={subCat.name} value="shopping-bag" 
+                  onChange={handleChangeSubCategory} id={subCat.id} toggle={isSelected} />
               )
             })}
           </S.InnerContainerCategory>
