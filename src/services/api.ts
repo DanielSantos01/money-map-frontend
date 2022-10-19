@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://172.22.72.43:8080'
+  baseURL: 'https://38b3-150-161-2-200.sa.ngrok.io/'
   // deployURL: ''
 });
 

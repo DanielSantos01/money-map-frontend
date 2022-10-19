@@ -14,7 +14,7 @@ export const AuthProvider: React.FC<I.IAuthProvider> = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `http://172.22.79.246:8080/user/login`,
+        `https://38b3-150-161-2-200.sa.ngrok.io/user/login`,
         { email, password },
       );
       setUserData(response.data.data);

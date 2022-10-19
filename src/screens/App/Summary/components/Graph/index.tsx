@@ -14,15 +14,6 @@ const Graph: React.FC<GraphProps> = ({ metrics, size }) => {
 
   return (
     <S.GraphContainer>
-      <PieChart
-        length={size}
-        containerProps={{ marginLeft: '-4%' }}
-        data={colors.map((color, idx) => ({
-          key: `${series[idx]}`,
-          color,
-          count: series[idx],
-        }))}
-      />
 
       <FlatList<Metrics>
         data={metrics}
@@ -41,11 +32,6 @@ const Graph: React.FC<GraphProps> = ({ metrics, size }) => {
           </S.AuxContainer>
         )}
       />
-
-      <S.TotalContainer>
-        <S.TotalLabel>Total</S.TotalLabel>
-        <S.TotalValue>{formatMoney((gain + spend))}</S.TotalValue>
-      </S.TotalContainer>
     </S.GraphContainer>
   );
 };
