@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { RoundButton, Input, HeaderWithReturn } from '../../../components';
 import { MainProps } from './interfaces';
@@ -16,6 +17,7 @@ const Main: React.FC<MainProps> = ({
 }) => {
 
   const [ axiosPost ] = useAxios('post');
+  const { navigate } = useNavigation();
 
   const handleAccount = async () => {
       await axiosPost({
@@ -25,7 +27,10 @@ const Main: React.FC<MainProps> = ({
           password: formulary.password,
           firstName: formulary.firstName,
           lastName: formulary.lastName
-        }
+        },
+        success: () => {
+          navigate('Login');
+        },
       });
   };
 
