@@ -8,7 +8,7 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const { handleAuth } = useAuth();
+  const { handleAuth, isLoading } = useAuth();
 
   const { navigate } = useNavigation<any>();
 
@@ -26,7 +26,7 @@ const Login: React.FC = () => {
 
   const handleSignIn = useCallback(async () => {
     handleAuth({ email, password });
-  }, [handleAuth]);
+  }, [handleAuth, email, password]);
 
   const handleForgotPassword = useCallback(async () => {
     navigate('ForgotPassword');
@@ -41,6 +41,7 @@ const Login: React.FC = () => {
       createAccount={handleCreateAccount}
       signIn={handleSignIn}
       forgotPassword={handleForgotPassword}
+      isLoading={isLoading}
     />
   );
 };

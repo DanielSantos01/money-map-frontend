@@ -12,6 +12,7 @@ const Main: React.FC<MainProps> = ({
   setPassword,
   signIn,
   forgotPassword,
+  isLoading,
 }) => {
   return (
     <S.Container>
@@ -37,7 +38,13 @@ const Main: React.FC<MainProps> = ({
           <S.ForgotPasswordLabel>Esqueci minha senha</S.ForgotPasswordLabel>
         </S.ForgotPasswordButton>
 
-        <RoundButton id='login-btn' mode='light' label='Entrar' onPress={signIn} />
+        <RoundButton
+          id='login-btn'
+          mode='light'
+          label='Entrar'
+          onPress={signIn}
+          isLoading={isLoading}
+        />
 
         <S.NoAccountLabel>Não possui conta?</S.NoAccountLabel>
 

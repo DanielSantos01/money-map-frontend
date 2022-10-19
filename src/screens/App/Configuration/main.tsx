@@ -13,6 +13,7 @@ const Main: React.FC<MainProps> = ({
   fixedGoal,
   setIncome,
   income,
+  handleConfig
 }) => {
   return (
     <S.Container>
@@ -52,7 +53,7 @@ const Main: React.FC<MainProps> = ({
           keyBoardType='numeric'
         />
 
-        <RoundButton id='config-btn' mode='light' label='Salvar' />
+        <RoundButton id='config-btn' mode='light' label='Salvar' onPress={handleConfig} />
       </S.InnerContainer>
     </S.Container>
   );

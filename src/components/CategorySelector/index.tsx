@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 
 import { InputProps } from './interfaces';
 import * as S from './styles';
@@ -7,30 +7,22 @@ const CategoryBtn: React.FC<InputProps> = ({
   onChange,
   containerStyle,
   value,
-  placeholder,
   labelFont,
   label,
-  icon,
-  keyBoardType
+  toggle,
+  id,
+  setCat,
 }) => {
 
-  const [touch, setTouch] = useState(false);
-
-  const toggleCategory = ({toggle}) => {
-    touch === true ? setTouch(false) : setTouch(true);
+  const handleOnPress = () => {
+    onChange(id);
   };
 
   return (
     <S.ContentContainer>
-      {touch ?
-        <S.Container style={containerStyle} onPress={toggleCategory}>
-          <S.Icon name={value} />
-        </S.Container>
-        :  
-        <S.Container2 style={containerStyle} onPress={toggleCategory}>
-          <S.Icon name={value} />
-        </S.Container2>
-      }
+      <S.Container style={containerStyle} onPress={handleOnPress} toggle={!toggle}>
+        <S.Icon name={value} />
+      </S.Container>
       <S.Label font={labelFont}>{label}</S.Label>
     </S.ContentContainer>
   );
