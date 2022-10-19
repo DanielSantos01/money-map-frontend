@@ -30,7 +30,7 @@ const Main: React.FC<MainProps> = ({ onChange, formulary }) => {
   const [category, setCategory] = useState([]);
   const [subCat, setSubCat] = useState('');
 
-  const { userData } = useAuth();
+  const { userData, setUserData } = useAuth();
   const [axiosPost] = useAxios('post');
 
   const { navigate } =
@@ -59,8 +59,8 @@ const Main: React.FC<MainProps> = ({ onChange, formulary }) => {
           value: formulary.value,
           subCategoryId: subCat,
           date: dayjs(
-            formulary.date.replaceAll('/', '-'),
-            'DD-MM-YYYY',
+            formulary.date,
+            'DD/MM/YYYY',
           ).toISOString(),
         },
       });
@@ -70,10 +70,10 @@ const Main: React.FC<MainProps> = ({ onChange, formulary }) => {
         body: {
           value: formulary.value,
         },
-        success: () => {
-          navigate('Home');
-        },
       });
+      
+      setUserData({...userData, value: Number(userData.value)+Number(formulary.value)});
+      navigate('Home');
     } catch (e) {
       console.log(e);
     }

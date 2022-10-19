@@ -7,6 +7,7 @@ export interface AuthContextData {
   userData: any;
   isLoading: boolean;
   handleAuth: (params: IAuthData) => Promise<void>;
+  setUserData: (params: any) => void;
 }
 
 export interface IAuthData {

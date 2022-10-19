@@ -27,7 +27,7 @@ const ForgotPassword: React.FC = () => {
     console.log(email);
     console.log(password); 
 
-    await axios.patch(`http://192.168.15.35:8080/user/forgot-password`, {
+    await axios.patch(`http://172.22.72.43:8080/user/forgot-password`, {
       email: email,
       password: password,
     }).then(() => navigate('Login'));

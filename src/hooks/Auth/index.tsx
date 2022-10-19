@@ -14,7 +14,7 @@ export const AuthProvider: React.FC<I.IAuthProvider> = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/user/login`,
+        `http://172.22.79.246:8080/user/login`,
         { email, password },
       );
       setUserData(response.data.data);
@@ -31,6 +31,7 @@ export const AuthProvider: React.FC<I.IAuthProvider> = ({ children }) => {
       userData,
       handleAuth,
       isLoading,
+      setUserData,
     }}>
       {children}
     </U.AuthContext.Provider>
