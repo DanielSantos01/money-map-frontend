@@ -6,20 +6,14 @@ import * as S from './styles';
 
 const Main: React.FC<MainProps> = ({
   createAccount,
-  onChange,
   email,
   password,
-  formulary,
   setEmail,
   setPassword,
   signIn,
   forgotPassword,
+  isLoading,
 }) => {
-
-  const handleLogin = () => {
-    // console.log(formulary)
-  }
-
   return (
     <S.Container>
       <S.InnerContainer>
@@ -28,15 +22,15 @@ const Main: React.FC<MainProps> = ({
         <Input
           label='E-mail'
           placeholder='E-mail@example.com'
-          onChange={onChange('email')}
-          value={formulary.email}
+          onChange={setEmail}
+          value={email}
         />
 
         <Input
           label='Senha'
           placeholder='Insira sua senha'
-          onChange={onChange('password')}
-          value={formulary.password}
+          onChange={setPassword}
+          value={password}
           isPassword
         />
 
@@ -44,7 +38,13 @@ const Main: React.FC<MainProps> = ({
           <S.ForgotPasswordLabel>Esqueci minha senha</S.ForgotPasswordLabel>
         </S.ForgotPasswordButton>
 
-        <RoundButton id='login-btn' mode='light' label='Entrar' onPress={signIn} />
+        <RoundButton
+          id='login-btn'
+          mode='light'
+          label='Entrar'
+          onPress={signIn}
+          isLoading={isLoading}
+        />
 
         <S.NoAccountLabel>Não possui conta?</S.NoAccountLabel>
 

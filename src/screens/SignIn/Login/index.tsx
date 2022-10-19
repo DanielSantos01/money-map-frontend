@@ -1,26 +1,16 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { FormularyModel } from './interfaces';
-import { useAxios } from '@/utils/useAxios';
 
 import Main from './main';
 import { useAuth } from '@/hooks';
 
 const Login: React.FC = () => {
-  const [formulary, setFormulary] = useState<FormularyModel>({} as FormularyModel);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [axiosPost] = useAxios('post');
 
-  const { handleAuth } = useAuth();
+  const { handleAuth, isLoading } = useAuth();
 
   const { navigate } = useNavigation<any>();
-
-  const handleChange = useCallback((key: string) => (value: string) => {
-    const parsedFormulary: FormularyModel = { ...formulary };
-    parsedFormulary[key] = value;
-    setFormulary(parsedFormulary);
-  }, [formulary]);
 
   const handleSetEmail = useCallback((value: string) => {
     setEmail(value);
@@ -51,8 +41,7 @@ const Login: React.FC = () => {
       createAccount={handleCreateAccount}
       signIn={handleSignIn}
       forgotPassword={handleForgotPassword}
-      formulary={formulary}
-      onChange={handleChange}
+      isLoading={isLoading}
     />
   );
 };

@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
-
+import axios from 'axios';
+import { useAuth } from '@/hooks';
 import { Header, MonthsList, LogList, FloatingButton } from '@/components';
+
 import { MonthModel } from './interfaces';
 import * as S from './styles';
-import { useAxios } from '@/utils/useAxios';
-import axios from 'axios';
+import { capitalize } from '@/utils/capitalize';
 
 const MainScreen: React.FC = () => {
   const [month, setMonth] = useState<MonthModel>({ index: 0, label: 'Janeiro' });
@@ -13,7 +14,7 @@ const MainScreen: React.FC = () => {
     setMonth({ index, label });
   }, []);
 
-  const [userData, setUserData] = useState();
+  const { userData } = useAuth();
   const [costsData, setCostsData] = useState();
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const MainScreen: React.FC = () => {
     <S.Container>
       <Header
         profilePictureUrl='https://instagram.frec15-1.fna.fbcdn.net/v/t51.2885-19/280098943_171767098555967_7051005647906309588_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.frec15-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=AOZg9Dz-NaYAX_59a_G&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AT-sHNgFAeB6QszNwaGXElYgxhtXqU8v_ISKWBsF81zyew&oe=633AE57D&_nc_sid=8fd12b'
-        username={userData?.firstName}
+        username={capitalize(userData?.firstName)}
         money={Number(userData?.value)}
         navigation={function (): Promise<void> {
           throw new Error('Function not implemented.');

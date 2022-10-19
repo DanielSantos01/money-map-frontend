@@ -5,6 +5,7 @@ export interface IAuthProvider {
 export interface AuthContextData {
   isAuthenticated: boolean;
   userData: any;
+  isLoading: boolean;
   handleAuth: (params: IAuthData) => Promise<void>;
 }
 
