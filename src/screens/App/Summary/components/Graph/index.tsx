@@ -1,7 +1,7 @@
 import { formatMoney } from '@/utils/formatMoney';
 import React from 'react';
 import { FlatList } from 'react-native';
-import PieChart from 'react-native-pie-chart';
+import PieChart from 'react-native-expo-pie-chart';
 
 import { GraphProps, Metrics } from './interfaces';
 import * as S from './styles';
@@ -15,18 +15,19 @@ const Graph: React.FC<GraphProps> = ({ metrics, size }) => {
   return (
     <S.GraphContainer>
       <PieChart
-        widthAndHeight={size}
-        series={series}
-        coverFill="#1E1E1E"
-        sliceColor={colors}
-        coverRadius={0.78}
-        doughnut
+        length={size}
+        containerProps={{ marginLeft: '-4%' }}
+        data={colors.map((color, idx) => ({
+          key: `${series[idx]}`,
+          color,
+          count: series[idx],
+        }))}
       />
 
       <FlatList<Metrics>
         data={metrics}
         keyExtractor={(_, idx) => idx.toString()}
-        style={{ flex: 1, maxWidth: '50%' }}
+        style={{ maxWidth: '50%', marginRight: '4%' }}
         renderItem={({ item }) => (
           <S.AuxContainer>
             <S.DisclaimerContainer>
