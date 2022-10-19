@@ -1,4 +1,5 @@
 import React from 'react';
+import { ActivityIndicator } from 'react-native';
 import { RoundButtonProps } from './interfaces';
 import * as S from './styles';
 
@@ -9,6 +10,7 @@ const RoundButton: React.FC<RoundButtonProps> = ({
   style,
   disabled,
   id,
+  isLoading,
 }) => {
   return (
     <S.Container
@@ -16,9 +18,13 @@ const RoundButton: React.FC<RoundButtonProps> = ({
       mode={mode}
       onPress={onPress}
       style={style}
-      disabled={disabled}
+      disabled={disabled || isLoading}
     >
-      <S.Label mode={mode}>{ label }</S.Label>
+      {isLoading ? (
+        <ActivityIndicator size="large" color="black" />
+      ) : (
+        <S.Label mode={mode}>{ label }</S.Label>
+      )}
     </S.Container>
   );
 };
