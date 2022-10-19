@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, RefreshControl } from 'react-native';
 import dayjs from 'dayjs';
 
 import { formatMoney } from '@/utils/formatMoney';
@@ -10,7 +10,11 @@ import { DateSection, ExpensesListProps, PreviewModel } from './interfaces';
 import * as S from './styles';
 import { CostModel } from '@/screens/App/Home/interfaces';
 
-const ExpensesList: React.FC<ExpensesListProps> = ({ costs, month }) => {
+const ExpensesList: React.FC<ExpensesListProps> = ({
+  costs,
+  month,
+  fetching,
+}) => {
   const [opened, setOpened] = useState<number[]>([]);
 
   const organizeByDate = useMemo(() => {
@@ -24,17 +28,12 @@ const ExpensesList: React.FC<ExpensesListProps> = ({ costs, month }) => {
 
       if (acc.some((a) => isSameDay(a.date, cur.date))) {
         const updatedSection = acc.map((a) =>
-          isSameDay(a.date, cur.date)
-            ? { ...a, costs: [...a.costs, cur] }
-            : a,
+          isSameDay(a.date, cur.date) ? { ...a, costs: [...a.costs, cur] } : a,
         );
         return updatedSection;
       }
 
-      return [
-        ...acc,
-        { date: dayjs(cur.date).toISOString(), costs: [cur] },
-      ];
+      return [...acc, { date: dayjs(cur.date).toISOString(), costs: [cur] }];
     }, []);
 
     return organized;
@@ -64,6 +63,10 @@ const ExpensesList: React.FC<ExpensesListProps> = ({ costs, month }) => {
     <S.Container>
       <FlatList
         data={organizeByDate}
+        ListEmptyComponent={<S.EmptyText>Nenhum gasto nesse mês</S.EmptyText>}
+        refreshControl={
+          <RefreshControl refreshing={fetching} tintColor="white" />
+        }
         renderItem={({ item, index: current }) => {
           const isOpen: boolean = opened.indexOf(current) !== -1;
           const { expanse, gain }: PreviewModel = calculatePreview(item.costs);
@@ -98,12 +101,14 @@ const ExpensesList: React.FC<ExpensesListProps> = ({ costs, month }) => {
                     </S.PreviewContainer>
                   )}
 
-                  {!!expanse && !!gain && <S.PreviewContainer>
-                    <S.Icon name="activity" style={{ color: '#BB86FC' }} />
-                    <S.PreviewValue color="#BB86FC">
-                      {formatMoney(gain + expanse)}
-                    </S.PreviewValue>
-                  </S.PreviewContainer>}
+                  {!!expanse && !!gain && (
+                    <S.PreviewContainer>
+                      <S.Icon name="activity" style={{ color: '#BB86FC' }} />
+                      <S.PreviewValue color="#BB86FC">
+                        {formatMoney(gain + expanse)}
+                      </S.PreviewValue>
+                    </S.PreviewContainer>
+                  )}
 
                   <S.Icon
                     name={isOpen ? 'chevron-down' : 'chevron-right'}

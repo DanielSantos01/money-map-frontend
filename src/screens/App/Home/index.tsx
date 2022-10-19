@@ -4,9 +4,10 @@ import dayjs from 'dayjs';
 import localeData from 'dayjs/plugin/localeData';
 import 'dayjs/locale/pt-br';
 
-import { useAuth } from '@/hooks';
+import API_BASE_URL from '@/utils/constants';
 import { Header, MonthsList, LogList, FloatingButton } from '@/components';
 import { capitalize } from '@/utils/capitalize';
+import { useAuth } from '@/hooks';
 
 import { CostModel } from './interfaces';
 
@@ -16,6 +17,7 @@ dayjs.extend(localeData);
 dayjs.locale('pt-br');
 
 const MainScreen: React.FC = () => {
+  const [fetching, setFetching] = useState(false);
   const [costs, setCosts] = useState<CostModel[]>();
   const months = dayjs.months();
   const [selectedMonth, setSelectedMonth] = useState<string>(
@@ -24,21 +26,22 @@ const MainScreen: React.FC = () => {
 
   const { userData } = useAuth();
 
-
   const handleSelectMonth = useCallback(async (month: string) => {
     setSelectedMonth(month);
   }, []);
 
   const fetchCosts = useCallback(async () => {
+    setFetching(true);
     try {
-      const { data } = await axios.get<{ data: CostModel[] }>(
-        'http://localhost:8080/costs',
+      const { data } = await axios.get(
+        `${API_BASE_URL}/costs/findUser/${userData?.id}`,
       );
 
       setCosts(data.data);
     } catch (e) {
       console.log(e);
     }
+    setFetching(false);
   }, []);
 
   useEffect(() => {
@@ -48,7 +51,6 @@ const MainScreen: React.FC = () => {
   return (
     <S.Container>
       <Header
-        profilePictureUrl='https://instagram.frec15-1.fna.fbcdn.net/v/t51.2885-19/280098943_171767098555967_7051005647906309588_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.frec15-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=AOZg9Dz-NaYAX_59a_G&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AT-sHNgFAeB6QszNwaGXElYgxhtXqU8v_ISKWBsF81zyew&oe=633AE57D&_nc_sid=8fd12b'
         username={capitalize(userData?.firstName)}
         money={Number(userData?.value)}
         navigation={function (): Promise<void> {
@@ -63,7 +65,7 @@ const MainScreen: React.FC = () => {
       />
 
       <S.LogsContainer>
-        <LogList month={selectedMonth} costs={costs} />
+        <LogList month={selectedMonth} costs={costs} fetching={fetching} />
       </S.LogsContainer>
 
       <FloatingButton />

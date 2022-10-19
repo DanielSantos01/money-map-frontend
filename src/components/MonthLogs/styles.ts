@@ -55,3 +55,11 @@ export const PreviewValue = styled.Text<PreviewValueProps>`
   color: ${({ color }) => color};
   font-family: ${({ theme }) => theme.fonts.raleway.bold};
 `;
+
+export const EmptyText = styled.Text<PreviewValueProps>`
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.onBackground};
+  font-family: ${({ theme }) => theme.fonts.raleway.bold};
+  margin-top: 24px;
+  text-align: center;
+`;

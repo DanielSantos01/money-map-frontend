@@ -5,10 +5,13 @@ interface VerticalViewProps {
   alignRight?: boolean;
 }
 
+export const Wrapper = styled.SafeAreaView`
+  background-color: ${({ theme }) => theme.colors.primaryGray};
+`;
+
 export const Container = styled.View`
   width: 100%;
   height: 115px;
-  background-color: ${({ theme }) => theme.colors.primaryGray};
   padding: 20px 15px;
   flex-direction: row;
 `;
@@ -26,7 +29,7 @@ export const VerticalView = styled.View<VerticalViewProps>`
   width: 50%;
   height: 100%;
   justify-content: space-between;
-  align-items: ${({ alignRight }) => alignRight ? 'flex-end' : 'flex-start'};
+  align-items: ${({ alignRight }) => (alignRight ? 'flex-end' : 'flex-start')};
 `;
 
 export const Username = styled.Text`

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import * as U from './utils';
 import * as I from './interfaces';
-import { BASE_URL } from '@/constants';
+import API_BASE_URL from '@/utils/constants';
 
 export const AuthProvider: React.FC<I.IAuthProvider> = ({ children }) => {
   const [isLoading, setLoading] = useState<boolean>(false);
@@ -14,7 +14,7 @@ export const AuthProvider: React.FC<I.IAuthProvider> = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${BASE_URL}/user/login`,
+        `${API_BASE_URL}/user/login`,
         { email, password },
       );
       setUserData(response.data.data);
