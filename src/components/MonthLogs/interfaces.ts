@@ -1,9 +1,16 @@
+import { CostModel } from '@/screens/App/Home/interfaces';
+
 export interface ExpensesListProps {
-  index: number;
-  label: string;
+  month: string;
+  costs: CostModel[];
 }
 
 export interface PreviewModel {
   expanse: number;
   gain: number;
 }
+
+export type DateSection = {
+  date: string;
+  costs: CostModel[];
+};

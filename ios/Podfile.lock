@@ -5,17 +5,15 @@ PODS:
     - ExpoModulesCore
   - EXConstants (13.2.4):
     - ExpoModulesCore
-  - EXErrorRecovery (3.2.0):
-    - ExpoModulesCore
   - EXFileSystem (14.1.0):
     - ExpoModulesCore
-  - EXFont (10.2.0):
+  - EXFont (10.2.1):
     - ExpoModulesCore
-  - Expo (46.0.10):
+  - Expo (46.0.16):
     - ExpoModulesCore
   - ExpoKeepAwake (10.2.0):
     - ExpoModulesCore
-  - ExpoModulesCore (0.11.5):
+  - ExpoModulesCore (0.11.8):
     - React-Core
     - ReactCommon/turbomodule/core
   - EXSplashScreen (0.16.2):
@@ -314,7 +312,7 @@ PODS:
     - React-perflogger (= 0.69.6)
   - ReactNativeART (1.2.0):
     - React
-  - RNReanimated (2.10.0):
+  - RNReanimated (2.11.0):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -353,7 +351,6 @@ DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
-  - EXErrorRecovery (from `../node_modules/expo-error-recovery/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
   - EXFont (from `../node_modules/expo-font/ios`)
   - Expo (from `../node_modules/expo`)
@@ -410,8 +407,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-application/ios"
   EXConstants:
     :path: "../node_modules/expo-constants/ios"
-  EXErrorRecovery:
-    :path: "../node_modules/expo-error-recovery/ios"
   EXFileSystem:
     :path: "../node_modules/expo-file-system/ios"
   EXFont:
@@ -500,12 +495,11 @@ SPEC CHECKSUMS:
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EXApplication: e418d737a036e788510f2c4ad6c10a7d54d18586
   EXConstants: 7c44785d41d8e959d527d23d29444277a4d1ee73
-  EXErrorRecovery: 74d71ee59f6814315457b09d68e86aa95cc7d05d
   EXFileSystem: 927e0a8885aa9c49e50fc38eaba2c2389f2f1019
-  EXFont: a5d80bd9b3452b2d5abbce2487da89b0150e6487
-  Expo: fcdb32274e2ca9c7638d3b21b30fb665c6869219
+  EXFont: 06df627203afcb8a3b3152ec06eb2f11f46f0cff
+  Expo: 7ac824960a6059d6c68e73f432c8e6bf6d92a0ef
   ExpoKeepAwake: 0e8f18142e71bbf2c7f6aa66ebed249ba1420320
-  ExpoModulesCore: 5a973701f4400d70254bc836305228731c829010
+  ExpoModulesCore: 39ec590ce622289c060183aba57f77b1e73b4e11
   EXSplashScreen: 799bece80089219b2c989c1082d70f3b00995cda
   FBLazyVector: 739d2f9719faecb463c7aa191591af31c8c94182
   FBReactNativeSpec: 957de82f66e31f2f14bbec34e37242282fdd26de
@@ -539,7 +533,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 0af71c94f968fa10015bf0119951bccd2e4d8865
   ReactCommon: fe7580b9d10f00249facf25659e0ec051320cc8a
   ReactNativeART: 78edc68dd4a1e675338cd0cd113319cf3a65f2ab
-  RNReanimated: 7faa787e8d4493fbc95fab2ad331fa7625828cfa
+  RNReanimated: 87034b5af4b0c8a9f0bde4a7af66aad3ecb070aa
   RNScreens: 4a1af06327774490d97342c00aee0c2bafb497b7
   RNSVG: 07dbd870b0dcdecc99b3a202fa37c8ca163caec2
   Yoga: 75bf4b0131cfb46a659cd0c13309b79a6fcff66d
