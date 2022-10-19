@@ -65,7 +65,12 @@ const MainScreen: React.FC = () => {
       />
 
       <S.LogsContainer>
-        <LogList month={selectedMonth} costs={costs} fetching={fetching} />
+        <LogList
+          month={selectedMonth}
+          costs={costs}
+          fetching={fetching}
+          fetchCosts={fetchCosts}
+        />
       </S.LogsContainer>
 
       <FloatingButton />

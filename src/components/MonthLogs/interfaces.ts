@@ -4,6 +4,7 @@ export interface ExpensesListProps {
   month: string;
   costs: CostModel[];
   fetching?: boolean;
+  fetchCosts: () => void;
 }
 
 export interface PreviewModel {

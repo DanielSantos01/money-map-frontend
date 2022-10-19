@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { FormularyModel } from './interfaces';
 
+import { FormularyModel } from './interfaces';
 import Main from './main';
 
 const Add: React.FC = () => {
@@ -11,8 +10,6 @@ const Add: React.FC = () => {
   const [date, setDate] = useState<Date>();
   const [value, setValue] = useState<number>();
   const [formulary, setFormulary] = useState<FormularyModel>({} as FormularyModel);
-
-  const { navigate } = useNavigation<any>();
 
   const handleChange = useCallback((key: string) => (value: string) => {
     const parsedFormulary: FormularyModel = { ...formulary };

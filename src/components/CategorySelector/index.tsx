@@ -11,7 +11,6 @@ const CategoryBtn: React.FC<InputProps> = ({
   label,
   toggle,
   id,
-  setCat,
 }) => {
 
   const handleOnPress = () => {

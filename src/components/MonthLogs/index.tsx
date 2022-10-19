@@ -14,6 +14,7 @@ const ExpensesList: React.FC<ExpensesListProps> = ({
   costs,
   month,
   fetching,
+  fetchCosts,
 }) => {
   const [opened, setOpened] = useState<number[]>([]);
 
@@ -65,7 +66,11 @@ const ExpensesList: React.FC<ExpensesListProps> = ({
         data={organizeByDate}
         ListEmptyComponent={<S.EmptyText>Nenhum gasto nesse mês</S.EmptyText>}
         refreshControl={
-          <RefreshControl refreshing={fetching} tintColor="white" />
+          <RefreshControl
+            onRefresh={fetchCosts}
+            refreshing={fetching}
+            tintColor="white"
+          />
         }
         renderItem={({ item, index: current }) => {
           const isOpen: boolean = opened.indexOf(current) !== -1;
