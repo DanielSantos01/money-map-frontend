@@ -7,4 +7,6 @@ export interface MainProps {
     setVariableGoal: (variableGoal: string) => void;
     setIncome: (income: string) => void;
     income: string;
+    handleConfig: () => Promise<void>;
+
   }
