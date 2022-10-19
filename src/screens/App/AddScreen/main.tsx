@@ -38,9 +38,6 @@ const Main: React.FC<MainProps> = ({
   }, [])
   
   const handleAdd = async () => {
-    console.log(formulary);
-    console.log(subCategory[0]);
-
     await axiosPost({
       url: '/costs',
       body: {

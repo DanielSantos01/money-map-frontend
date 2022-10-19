@@ -26,7 +26,7 @@ const Login: React.FC = () => {
 
   const handleSignIn = useCallback(async () => {
     handleAuth({ email, password });
-  }, [handleAuth]);
+  }, [handleAuth, email, password]);
 
   const handleForgotPassword = useCallback(async () => {
     navigate('ForgotPassword');
